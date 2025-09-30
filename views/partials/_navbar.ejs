@@ -1,0 +1,13 @@
+<a href="/" class="nav-logo">Home Page</a>
+    
+<ul class="nav-menu">
+    <% if(user){ %>
+        <li class="nav-item"><a href="/auth/sign-out" class="nav-link">Sign out</a></li>  
+        <li class="nav-item"><a href="/items/new_pet" class="nav-link">Add new Pet</a></li>  
+        
+    <% } else { %>
+        <li class="nav-item"><a href="/auth/sign-in" class="nav-link">Sign in</a></li>
+        <li class="nav-item"><a href="/auth/sign-up" class="nav-link">Sign up</a></li>
+    <% } %>
+   
+</ul>

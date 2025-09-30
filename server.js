@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const path = require('path') // for photos
 
 dotenv.config();
 require('./config/databse.js');
@@ -19,7 +20,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 
 // Controllers
 const authController = require('./controllers/auth.js');
-
+const PetsController = require('./controllers/pets.js');
 // Set the port from environment variable or default to 3000
 const PORT = process.env.PORT ? process.env.PORT : '3000';
 
@@ -47,18 +48,18 @@ app.use(
 // Add user variable to all templates
 app.use(passUserToView);
 
-// PUBLIC
-app.get('/', (req, res) => {
-  res.render('index.ejs');
-});
+app.use(express.static(path.join(__dirname, "public"))); // for photos
+
+
 
 app.use('/auth', authController);
-
+app.use('/pets', PetsController);
+// PUBLIC
+app.get('/pets', (req, res) => {
+  res.render('index.ejs');
+});
 // PROTECTED
 
-app.get('/vip-lounge', isSignedIn, (req, res) => {
-  res.send(`Welcome to the party ${req.session.user.username}.`);
-});
 
 app.listen(PORT, () => {
   console.log(`The express app is ready on port ${PORT}!`);

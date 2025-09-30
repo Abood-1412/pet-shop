@@ -2,20 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const petSchema = new Schema({
-    petname: {
+    petName: {
         type: String,
         required: true,
     },
-    pettype: {
+    petType: {
         type: String,
         required: true,
     },
-    petbreed: {
+    petBreed: {
         type: String,
         required: true,
     },
-    petage: {
-        type: String,
+    petAge: {
+        type: Number,
         required: true,
     },
     image: {
@@ -33,7 +33,11 @@ const petSchema = new Schema({
     status: {
         type: String,
         required: true,
-    }
+    },
+    AdoptedById: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
 
 });
 

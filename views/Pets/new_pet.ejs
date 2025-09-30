@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Item</title>
+    
+    
+  </head>
+  <body>
+    <header>
+      <nav class="navbar section-content">
+        <%- include('../partials/_navbar.ejs') %>
+      </nav>
+
+      
+    </header> 
+	
+    <div class="sign-in-container">	
+    	<h1 class="sign-in-title">Add a new Item!</h1>
+
+    	<form action="/pets" method="POST">
+      
+      		<label class="sign-in-label" for="petName">Pet name:</label>
+      		<input class="sign-in-input" type="text" name="petName" id="petName" required/>
+
+            <label class="sign-in-label" for="petType">Pet Type:</label>
+      		<input class="sign-in-input" type="text" name="petType" id="petType" required/>
+
+            <label class="sign-in-label" for="petBreed">Pet Breed:</label>
+      		<input class="sign-in-input" type="text" name="petBreed" id="petBreed" required/>
+
+      		<label class="sign-in-label" for="petAge">Pet Age:</label>
+      		<input class="sign-in-input" type="number" name="petAge" id="petAge" step="0.01" required/>
+
+      		<label class="sign-in-label" for="description">Pet description:</label>
+      		<textarea class="sign-in-input" name="description" id="description" rows="4" required></textarea>
+
+      		<label class="sign-in-label" for="location">Pet Location:</label>
+      		<input class="sign-in-input" type="text" name="location" id="location" required/>
+
+            <label class="sign-in-label" for="status">Pet Status:</label>
+      		<input class="sign-in-input" type="text" name="status" id="status" required/>
+
+        	<label class="sign-in-label" for="image">Pet Image:</label>
+        	<input class="sign-in-input" type="file" name="image" id="image" accept="image/*" required />
+
+          <div id="image-preview-container" style="margin-top: 20px; display: none;">
+              <h2 class="sign-in-label">Image Preview:</h2>
+              <img id="image-preview" src="" alt="Image Preview" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
+          </div>
+
+      		<button class="sign-in-button" type="submit">Add Item</button>    
+    	</form>
+    </div>
+
+    <%- include('../partials/_footer.ejs') %>
+
+    
+  </body>
+</html>
