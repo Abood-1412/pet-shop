@@ -55,8 +55,8 @@ app.use(express.static(path.join(__dirname, "public"))); // for photos
 app.use('/auth', authController);
 app.use('/pets', PetsController);
 // PUBLIC
-app.get('/pets', (req, res) => {
-  res.render('index.ejs');
+app.get('/', (req, res) => {
+  res.render('Pets/index.ejs');
 });
 // PROTECTED
 
